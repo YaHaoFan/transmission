@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.transmission.transmission.dao.GcbProSingleDao" >
+
+
+    <insert id="insertSingle">
+        INSERT INTO gcb_proj_single (id,proj_id, data_id,create_date,proj_type) VALUES (#{id}, #{projId},#{dataId},#{createDate},#{projType})
+    </insert>
+    <update id="updateSingle">
+        UPDATE gcb_proj_single
+        SET
+        `data` = #{parmMap.originalXml}, `door_data` = #{parmMap.doorList}, `door_num` = #{parmMap.doorNum},
+        `window_data` = #{parmMap.windowList},
+        `window_num` = #{parmMap.windowNum}
+        WHERE
+            `id` = #{parmMap.code}
+    </update>
+</mapper>

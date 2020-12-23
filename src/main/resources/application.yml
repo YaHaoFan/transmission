@@ -1,0 +1,79 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    name: mysql_test
+    type: com.alibaba.druid.pool.DruidDataSource
+    #基本属性
+#    url: jdbc:mysql://192.168.10.11:3306/motian_dev?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: xiaoling!@#123
+#    url: jdbc:mysql://61.55.140.252:3306/motian_prod?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: xiaoling!@#123
+    url: jdbc:mysql://127.0.0.1:3306/motian_prod?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    username: root
+    password: root
+    #配置初始化大小/最小/最大
+    initial-size: 1
+    min-idle: 1
+    max-active: 20
+    #获取连接等待超时时间
+    max-wait: 60000
+    #间隔多久进行一次检测，检测需要关闭的空闲连接
+    time-between-eviction-runs-millis: 60000
+    #一个连接在池中最小生存的时间
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 'x'
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+    pool-prepared-statements: false
+    max-pool-prepared-statement-per-connection-size: 20
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
+  http:
+    multipart:
+    enabled: false
+  jpa:
+    database : MYSQL
+    show-sql : true
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #逻辑删除配置
+    logic-delete-value: -1
+    logic-not-delete-value: 0
+    #自定义SQL注入器
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+       
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: truedownloadurl
+  params: count=countSql
+  returnPageInfo: check
+httpRequest:
+  downloadurl: http://211.90.38.38:8910/YsbByXiaoling/a/ysb/audit/downZipDrawingByUrl?prjId=code
+#  downloadurl: aHR0cDovLzIyMi4yMjIuMzEuNzQ6OTA5My90cmFuc21pc3Npb24vZG93bmxvYWRT
+#  uploadurl: http://222.222.31.74:9093/transmission/callback
+  uploadurl: http://192.168.10.121:8888/transmission/callback
+  requestUrl: http://192.168.10.10:8123/api/mcbstatistic
+#  requestUrl: http://123.119.27.182:5000/api/mcbstatistic
