@@ -352,7 +352,7 @@ public class SignPdf {
 //                * @param numberOfPages
 //                *            签名页码，如果是最后一页则传null
 //                * @param pageStyle
-//                *            页面布局，横向或者纵向提交
+//                *            页面布局，横向或者纵向
         sign("C:/Users/Admin/Desktop/1234.pdf",//
                 "C:/Users/Admin/Desktop/signed.pdf",
                 "C:/Users/Admin/Desktop/技术文件专用章.gif",

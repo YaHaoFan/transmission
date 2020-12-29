@@ -91,6 +91,6 @@ public class SignImage {
     }
 
     public static void main(String[] args) {
-        createSignTextImg("华佗", "在线医院", "2018.01.01", "C:/Users/Admin/Desktop/sign.jpg");
+        createSignTextImg("华佗1", "在线医院", "2018.01.01", "C:/Users/Admin/Desktop/sign.jpg");
     }
 }
